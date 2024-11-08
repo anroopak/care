@@ -83,6 +83,10 @@ from care.facility.api.viewsets.resources import (
     ResourceRequestCommentViewSet,
     ResourceRequestViewSet,
 )
+from care.facility.api.viewsets.schedule import (
+    ScheduleExceptionViewSet,
+    ScheduleViewSet,
+)
 from care.facility.api.viewsets.shifting import (
     ShifitngRequestCommentViewSet,
     ShiftingViewSet,
@@ -217,6 +221,14 @@ facility_nested_router.register(
 )
 facility_nested_router.register(
     r"spokes", FacilitySpokesViewSet, basename="facility-spokes"
+)
+facility_nested_router.register(
+    "schedule", ScheduleViewSet, basename="facility-schedule"
+)
+facility_nested_router.register(
+    "schedule_exceptions",
+    ScheduleExceptionViewSet,
+    basename="facility-schedule-exception",
 )
 
 router.register("asset", AssetViewSet, basename="asset")
